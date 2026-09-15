@@ -63,7 +63,7 @@ Il logo aziendale, reperito dal sito ufficiale di Bonifiche Ferraresi, è utiliz
 
 ## 🚀 Demo
 
-Il sito è pubblicato tramite **GitHub Pages**: *[inserire qui il link al sito pubblicato]*
+Il sito è pubblicato tramite **GitHub Pages**: *[https://gimmyyy.github.io/SitoWeb_ProjectWork_L31]*
 
 ## 👤 Autore
 
