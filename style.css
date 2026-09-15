@@ -1,0 +1,316 @@
+/* Colori del marchio BF e misure ricorrenti, scritti una volta sola e richiamati con var() in tutto il file */ 
+:root {
+    --blu: #00265A;
+    --azzurro: #A6C6E5;
+    --grigio: #F4F6F9;
+    --testo: #55606E;
+    --bordo: #E1E6ED;
+    --larghezza: 1120px;
+}
+
+/* Azzera margini e padding predefiniti del browser, imposta il font di base e rende fluido lo scorrimento verso gli id.
+   scroll-padding-top serve a non far coprire i titoli dall'header fisso */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    color: #1C1C1C;
+}
+
+img { max-width: 100%; display: block; }
+a { text-decoration: none; color: inherit; }
+
+/*  Wrapper ripetuto in hero, sezioni e footer, limita la larghezza e centra il blocco, così tutta la pagina resta allineata */
+.contenuto {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    width: 100%;
+    max-width: var(--larghezza);
+    margin: 0 auto;
+}
+
+/* Barra che resta agganciata in alto durante lo scroll (sticky). Logo e blocco destro hanno lo stesso flex: 1, 
+   quindi si dividono in parti uguali lo spazio libero e il menu in mezzo risulta centrato */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 18px 40px;
+    background: #fff;
+    border-bottom: 1px solid var(--bordo);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo, .destra { display: flex; align-items: center; flex: 1; }
+.logo { gap: 12px; }
+.destra { justify-content: flex-end; }
+
+.logo img { height: 38px; width: auto; }
+.logo span { font-size: 18px; font-weight: 700; color: var(--blu); }
+
+.menu { display: flex; align-items: center; gap: 32px; }
+
+/* La linea sotto ai link è già presente ma trasparente, così al passaggio del mouse compare senza far spostare il testo */
+.menu a {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--blu);
+    padding: 6px 0;
+    border-bottom: 2px solid transparent;
+}
+
+.menu a:hover { border-color: var(--azzurro); }
+
+/*  Stile riutilizzato da tutti i link che devono sembrare pulsanti */
+.btn {
+    display: inline-flex;
+    background: var(--blu);
+    color: #fff;
+    padding: 10px 22px;
+    font-size: 15px;
+}
+
+.btn:hover { background: #003C8F; }
+
+/* Nascosto su desktop, compare nella media query in fondo al file.
+   Quando il JavaScript aggiunge la classe "aperto" le tre righe ruotano e quella centrale sparisce, formando una X */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 34px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 2px;
+    background: var(--blu);
+    transition: 0.3s;
+}
+
+.hamburger.aperto span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.aperto span:nth-child(2) { opacity: 0; }
+.hamburger.aperto span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Schermata di apertura alta il 78% della finestra, con la foto banner1.jpg di sfondo. Il background impila due livelli mettendo sopra
+   una sfumatura blu semitrasparente e sotto l'immagine. La sfumatura scurisce la foto (che era molto chiara) e rende leggibile il testo bianco
+   cover ritaglia l'immagine per riempire sempre tutta la sezione
+   align-items: flex-start impedisce al pulsante di allargarsi a tutta riga */
+.hero {
+    display: flex;
+    align-items: center;
+    min-height: 78vh;
+    padding: 60px 40px;
+    background: linear-gradient(to right, rgba(0, 38, 90, 0.88), rgba(0, 38, 90, 0.45)),
+                url('assets/banner1.jpg') center / cover no-repeat;
+    color: #fff;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    max-width: 720px;
+}
+
+.hero h1 { font-size: 52px; line-height: 1.15; }
+.hero p { font-size: 18px; color: var(--azzurro); }
+.hero .btn { background: #fff; color: var(--blu); }
+.hero .btn:hover { background: var(--azzurro); }
+
+/* Struttura comune a Storia ed ESG: il blocco "titolo" con etichetta, titolo e testo introduttivo  */
+.section { display: flex; padding: 100px 40px; }
+
+.titolo {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 700px;
+}
+
+.tag {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--blu);
+}
+
+.titolo h2 { font-size: 38px; line-height: 1.2; color: var(--blu); }
+.titolo p { font-size: 17px; color: var(--testo); }
+
+/* I tre pilastri stanno tutti dentro alla stessa sezione, separati uno dall'altro da una linea orizzontale */
+.blocco {
+    display: flex;
+    flex-direction: column;
+    gap: 34px;
+    padding-top: 50px;
+    border-top: 2px solid var(--bordo);
+}
+
+.blocco h3 { font-size: 28px; line-height: 1.2; color: var(--blu); }
+
+/* I dati animati dal JavaScript. In ".cifra" il numero e la sua unità sono allineati sulla stessa linea di base
+"white-space: pre" conserva lo spazio scritto prima di "mln €" */
+.numeri { display: flex; flex-wrap: wrap; gap: 24px; }
+
+.numero {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1 1 240px;
+    padding-top: 24px;
+    border-top: 2px solid var(--bordo);
+}
+
+.cifra {
+    display: flex;
+    align-items: baseline;
+    line-height: 1;
+    color: var(--blu);
+}
+
+.conta { font-size: 46px; font-weight: 700; }
+.unita { font-size: 26px; white-space: pre; }
+.numero p { font-size: 15px; color: var(--testo); }
+
+/* Per la timeline verticale, la linea continua è il bordo sinistro del contenitore. 
+Ogni tappa è una riga con anno e testo affiancati, che su schermi stretti va a capo da sola grazie a flex-wrap */
+.storia {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    padding-left: 30px;
+    border-left: 2px solid var(--bordo);
+}
+
+.tappa { display: flex; flex-wrap: wrap; gap: 20px; }
+.anno { flex: 0 0 60px; font-size: 20px; font-weight: 700; color: var(--blu); }
+.evento { flex: 1 1 260px; font-size: 15px; color: var(--testo); }
+
+/* La sezione ha dietro una foto coperta da un velo blu quasi pieno come nell'hero, questo rende la foto leggibile ma
+   i testi vanno messi in chiaro, altrimenti sparirebbero */
+#storia {
+    background: linear-gradient(rgba(0, 38, 90, 0.7), rgba(0, 38, 90, 0.7)),
+                url('assets/sfondo_storia.jpg') center / cover;
+}
+
+#storia .titolo h2, #storia .anno { color: #fff; }
+#storia .tag, #storia .titolo p, #storia .evento { color: var(--azzurro); }
+#storia .storia { border-color: rgba(255, 255, 255, 0.25); }
+
+/* Foto a sinstra e testo a destra: flex-wrap li mette uno sotto l'altro sugli schermi stretti
+   Essendo la foto molto verticale, è stata messa un'altezza fissa e object-fit: cover la ritaglia invece di deformarla
+   Nella colonna di destra align-items impedisce al pulsante di allargarsi  */
+.report {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 50px;
+}
+
+.report-foto {
+    flex: 1 1 300px;
+    max-width: 380px;
+    height: 400px;
+    object-fit: cover;
+}
+
+.report-testo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+    flex: 1 1 360px;
+}
+
+.footer {
+    display: flex;
+    padding: 60px 40px 30px;
+    background: var(--grigio);
+    border-top: 1px solid var(--bordo);
+}
+
+.footer .contenuto { gap: 30px; }
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.footer-logo { height: 46px; mix-blend-mode: multiply; }
+.footer-social { display: flex; flex-wrap: wrap; gap: 26px; }
+.footer-social a { font-size: 15px; color: var(--blu); }
+.footer-social a:hover { text-decoration: underline; }
+
+.footer-basso {
+    font-size: 13px;
+    color: #7A838F;
+    text-align: center;
+    border-top: 1px solid var(--bordo);
+    padding-top: 24px;
+}
+
+/* Sotto gli 860px compare l'hamburger e il menu diventa un pannello a tendina posizionato sotto all'header, 
+   nascosto finché il JavaScript non gli aggiunge la classe "aperto"
+   La scritta accanto al logo sparisce er lasciare spazio all'hamburger e invece il resto è solo una riduzione di dimensioni e spaziature */
+@media (max-width: 860px) {
+    .header { padding: 14px 20px; }
+
+    .logo span { display: none; }
+
+    .hamburger { display: flex; }
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        padding: 8px 20px 24px;
+        border-bottom: 1px solid var(--bordo);
+    }
+
+    .menu.aperto { display: flex; }
+
+    .menu a {
+        width: 100%;
+        padding: 12px 0;
+        border-bottom: 1px solid var(--bordo);
+    }
+
+    .hero { padding: 50px 20px; }
+    .hero h1 { font-size: 34px; }
+    .section { padding: 64px 20px; }
+    .contenuto { gap: 40px; }
+    .titolo h2 { font-size: 28px; }
+    .blocco h3 { font-size: 23px; }
+    .conta { font-size: 38px; }
+    .unita { font-size: 22px; }
+    .report-foto { height: 240px; }
+    .footer { padding: 44px 20px 24px; }
+    .footer-top { flex-direction: column; align-items: flex-start; }
+}

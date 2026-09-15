@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <!-- INFORMAZIONI TECNICHE -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BF S.p.A. - Report di Sostenbilità</title>
+    <meta name="description" content="Report di Sostenibilità - Bonifiche Ferraresi">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER
+        Barra fissa in alto divisa in tre parti: logo a sinistra, i link di navigazione al centro e l'hamburger a destra.
+        Il div "destra" rimane attivo anche sul desktop, dove l'hamburger è nascosto: 
+        serve a bilanciare il logo e tenere il menu centrato nella pagina.
+        
+        Gli id "menu" e "hamburger" sono i due agganci usati dal JavaScript. -->
+    <header class="header">
+
+        <a href="#home" class="logo">
+            <img src="assets/logo.svg" alt="Logo BF S.p.A.">
+            <span>Bonifiche Ferraresi S.p.A.</span>
+        </a>
+
+        <nav class="menu" id="menu">
+            <a href="#home">Home</a>
+            <a href="#storia">Storia</a>
+            <a href="#esg">ESG</a>
+            <a href="#documenti">Documenti</a>
+        </nav>
+
+        <div class="destra">
+            <button class="hamburger" id="hamburger" aria-label="Apri menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO
+         Schermata di apertura con la foto banner1.jpg di sfondo, impostata dal CSS.
+         L'id "home" è la destinazione del click sul logo. -->
+    <section class="hero" id="home">
+        <div class="contenuto">
+            <div class="hero-text">
+                <p class="tag">La nostra mission aziendale</p>
+                <h1>Nutriamo valore, <br>coltiviamo il futuro.</h1>
+                <p>Il nostro impegno misurato su tre dimensioni: risultati ambientali, persone e territorio, trasparenza nella gestione.</p>
+                <a href="#esg" class="btn">Scopri i risultati</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORIA
+         Timeline verticale con le tappe fondamentali dell'azienda: ogni "tappa" è una riga con l'anno a sinistra e l'avvenimento a destra.
+         La foto di sfondo sfondo_storia.jpg è impostata dal CSS sull'id. -->
+    <section class="section" id="storia">
+        <div class="contenuto">
+
+            <div class="titolo">
+                <p class="tag">La nostra storia</p>
+                <h2>Oltre 150 anni di lavoro sulla terra</h2>
+                <p>Dalla bonifica delle paludi ferraresi al polo agroindustriale di oggi.</p>
+            </div>
+
+            <div class="storia">
+                <div class="tappa">
+                    <p class="anno">1871</p>
+                    <p class="evento">Nasce a Londra la Ferrarese Land Reclamation Company Limited, per bonificare le terre paludose della provincia di Ferrara.</p>
+                </div>
+                <div class="tappa">
+                    <p class="anno">1872</p>
+                    <p class="evento">Un regio decreto autorizza l'attività nel Regno d'Italia con il nome di Società per la Bonifica dei Terreni Ferraresi.</p>
+                </div>
+                <div class="tappa">
+                    <p class="anno">1942</p>
+                    <p class="evento">La Banca d'Italia acquisisce la maggioranza del capitale sociale.</p>
+                </div>
+                <div class="tappa">
+                    <p class="anno">1947</p>
+                    <p class="evento">Le azioni di Bonifiche Ferraresi vengono quotate alla Borsa di Milano.</p>
+                </div>
+                <div class="tappa">
+                    <p class="anno">2014</p>
+                    <p class="evento">B.F. S.p.A. rileva da Banca d'Italia la quota di maggioranza e avvia il progetto di polo agroindustriale europeo.</p>
+                </div>
+                <div class="tappa">
+                    <p class="anno">2017</p>
+                    <p class="evento">B.F. S.p.A. arriva al 100% di Bonifiche Ferraresi e viene quotata in Borsa.</p>
+                </div>
+                <div class="tappa">
+                    <p class="anno">2023</p>
+                    <p class="evento">Aumento di capitale da 300 milioni di euro e prime attività produttive fuori
+                        dall'Italia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ESG
+         Sezione unica che raccoglie i tre pilastri, uno per "blocco".
+         La struttura si ripete uguale tre volte: intestazione e riga di numeri.
+         Ogni span con classe "conta" viene animato dal JavaScript, che parte da 0
+         e sale fino al valore scritto nell'attributo data-fine. -->
+    <section class="section" id="esg">
+        <div class="contenuto">
+
+            <div class="titolo">
+                <p class="tag">ESG</p>
+                <h2>Tre lettere, tre impegni concreti</h2>
+                <p>Environmental, Social e Governance sono le tre dimensioni con cui si misura la sostenibilità di un'impresa oltre al bilancio: l'impatto ambientale, il rapporto con le persone e le comunità e il modo in cui l'azienda è governata e controllata.
+                </p>
+            </div>
+
+            <div class="blocco">
+                <div class="titolo">
+                    <p class="tag">01 — Environmental</p>
+                    <h3>Crescita solida e sostenibile</h3>
+                    <p>Il Gruppo BF ha consumato 467.564 GJ di energia ed emesso 37.367 tonnellate di CO₂ su più di 7500 acri gestiti, valori quasi triplicati per l'ingresso di nuove società nel perimetro; la quota di rinnovabili è scesa al 2,7%, mentre il fotovoltaico installato copre ormai il 77% del fabbisogno delle società certificate. Il punto più delicato è l'acqua, con il 99,5% dei prelievi in aree a stress idrico, e il fatto che le emissioni della catena del valore non siano ancora calcolate: per questo mancano ancora obiettivi quantitativi di riduzione.</p>
+                </div>
+
+                <div class="numeri">
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="467564">0</span><span class="unita"> GJ</span>
+                        </p>
+                        <p>Energia Consumata</p>
+                    </div>
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="37367">0</span><span class="unita">t</span></p>
+                        <p>Emissioni di CO₂</p>
+                    </div>
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="7500">0</span><span class="unita">acri</span></p>
+                        <p>Superficie agricola gestita</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blocco">
+                <div class="titolo">
+                    <p class="tag">02 — Social</p>
+                    <h3>Le persone prima di tutto</h3>
+                    <p>L'organico è cresciuto del 22% arrivando a 1.107 dipendenti, per l'85% a tempo indeterminato ma con una forte prevalenza maschile (75%, che sale al 92% tra i dirigenti). La formazione è rimasta ferma nonostante la crescita, scendendo a circa 9 ore medie a testa, e gli infortuni sono passati da 8 a 26 — tutti non gravi, nessun decesso né malattia professionale.</p>
+                </div>
+
+                <div class="numeri">
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="1100">0</span><span class="unita">+</span></p>
+                        <p>Dipendenti del Gruppo</p>
+                    </div>
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="9">0</span><span class="unita">h</span></p>
+                        <p>Ore di formazione erogate in media</p>
+                    </div>
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="25">0</span><span class="unita">%</span></p>
+                        <p>Presenza femminile in azienda</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="blocco">
+                <div class="titolo">
+                    <p class="tag">03 — Governance</p>
+                    <h3>Trasparenza come metodo</h3>
+                    <p>Consiglio di undici membri con buon equilibrio di genere (54% uomini, 46% donne) e sostenibilità presidiata dal Comitato Controllo e Rischi con una funzione ESG dedicata; nel 2023 nessun caso di corruzione, contenzioso antitrust o violazione della privacy. Restano due limiti dichiarati: gli stakeholder esterni non sono stati coinvolti nell'analisi di materialità e solo il 24% dei fornitori significativi possiede certificazioni di qualità e sicurezza</p>
+                </div>
+
+                <div class="numeri">
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="11">0</span></p>
+                        <p>Membri del Consiglio di Amministrazione</p>
+                    </div>
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="45">0</span><span class="unita">%</span></p>
+                        <p>Amministratori indipendenti</p>
+                    </div>
+                    <div class="numero">
+                        <p class="cifra"><span class="conta" data-fine="100">0</span><span class="unita">%</span></p>
+                        <p>Fornitori con codice etico firmato</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sezione documenti, permette all'utente premendo i bottoni di visualizzare o scaricare l'ultimo report disponibile -->
+    <section class="section" id="documenti">
+        <div class="contenuto">
+
+            <div class="report">
+                <img src="assets/foto_report.jpg" alt="Mani che raccolgono una piantina dal terreno" class="report-foto">
+
+                <div class="report-testo">
+                    <div class="titolo">
+                        <p class="tag">Documenti</p>
+                        <h2>Report di sostenibilità 2023</h2>
+                        <p>Scarica l'ultimo report di sostenibilità disponibile! (PDF: 2,4 MB).</p>
+                    </div>
+                    
+                    <a href="assets/report-sotenibilita-2023.pdf" class="btn" target="_blank">Visualizza il report</a>
+                    <a href="assets/report-sotenibilita-2023.pdf" class="btn" download>Scarica il report</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER
+         Chiusura della pagina con logo esteso, i profili social e la riga dei crediti.
+         I link social hanno target="_blank" perché portano fuori dal sito. -->
+    <footer class="footer">
+        <div class="contenuto">
+
+            <div class="footer-top">
+                <img src="assets/bonificheferraresi_medium.gif" alt="Logo Bonifiche Ferraresi" class="footer-logo">
+                <nav class="footer-social">
+                    <a href="https://www.linkedin.com/company/bf-s-p-a/" target="_blank">LinkedIn</a>
+                    <a href="https://www.youtube.com/@BF_Spa" target="_blank">YouTube</a>
+                    <a href="mailto:info@bfspa.it">info@bfspa.it</a>
+                </nav>
+            </div>
+
+            <p class="footer-basso">© 2026 BF S.p.A. — Progetto didattico a scopo dimostrativo.</p>
+        </div>
+    </footer>
+
+    <!-- Lo script sta in fondo al body così l'HTML esiste già quando viene eseguito -->
+    <script src="script.js"></script>
+</body>
+</html>
